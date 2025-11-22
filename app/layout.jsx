@@ -41,8 +41,8 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
   verification: {
-    // google: "TtCVRJScD-UOsCl5zgJf3NL2maM07UtsS2-WAKXzDao",
-    google: "9dFsFtyxM5pE4VhCArkTIF27OM8tfHFG8SjUm-ENilo",
+    google: "TtCVRJScD-UOsCl5zgJf3NL2maM07UtsS2-WAKXzDao",
+   
   },
 };
 
