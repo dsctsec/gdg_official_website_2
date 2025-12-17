@@ -29,9 +29,9 @@ const cards = [
   // Design Head
   {
     link: "Devansh Mantri",
-    cover: "/teams/Devansh_Mantri.jpeg",
+    cover: "/teams/Devansh_Mantri1.jpeg",
     title: "DESIGN HEAD",
-    character: "/teams/Devansh.png",
+    character: "/teams/Devansh1.png",
     alt: "Devansh Mantri",
     name: "Devansh Mantri",
     linkedin: "https://www.linkedin.com/in/devansh-mantri-9b285828b",
