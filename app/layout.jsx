@@ -56,23 +56,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preload" as="image" href="/Logo.png" />
         <link rel="preload" as="image" href="/og.png" />
-        <link rel="preload" as="image" href="/gallery/2.png" />
-        <link rel="preload" as="image" href="/gallery/3.png" />
-        <link rel="preload" as="image" href="/gallery/4.png" />
-        <link rel="preload" as="image" href="/gallery/5.png" />
-        <link rel="preload" as="image" href="/gallery/6.png" />
-        <link rel="preload" as="image" href="/gallery/7.png" />
-        <link rel="preload" as="image" href="/gallery/8.png" />
-        <link rel="preload" as="image" href="/gallery/9.png" />
-        <link rel="preload" as="image" href="/gallery/10.png" />
-        <link rel="preload" as="image" href="/gallery/11.png" />
-        <link rel="preload" as="image" href="/gallery/12.png" />
-        <link rel="preload" as="image" href="/gallery/13.png" />
-        <link rel="preload" as="image" href="/gallery/14.png" />
-        <link rel="preload" as="image" href="/gallery/15.png" />
-        <link rel="preload" as="image" href="/gallery/16.png" />
-        <link rel="preload" as="image" href="/gallery/17.png" />
-        <link rel="preload" as="image" href="/gallery/18.png" />
+        
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

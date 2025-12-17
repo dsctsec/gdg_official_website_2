@@ -376,11 +376,10 @@ class App {
       { image: `/gallery/5.png` },
       { image: `/gallery/6.png` },
       { image: `/gallery/7.png` },
-      { image: `/gallery/8.png` },
-      { image: `/gallery/10.png` },
+     
+     
       { image: `/gallery/11.png` },
-      { image: `/gallery/12.png` },
-      { image: `/gallery/13.jpg` },
+    
       { image: `/gallery/14.jpg` },
       { image: `/gallery/15.jpg` },
       { image: `/gallery/16.jpg` },
