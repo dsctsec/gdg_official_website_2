@@ -2,7 +2,7 @@
 import React from "react";
 import Card from "../components/Card";
 import Image from "next/image";
-
+import Script from "next/script"; 
 const cards = [
   // Lead
   {
@@ -236,6 +236,24 @@ const cards = [
 
 const TeamsPage = () => {
   return (
+    <>
+        <Script
+      id="team-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "GDG TSEC",
+          "member": cards.map(card => ({
+            "@type": "Person",
+            "name": card.name,
+            "jobTitle": card.title,
+            "sameAs": [card.linkedin, card.github].filter(Boolean)
+          }))
+        })
+      }}
+    />
     <div className="min-h-screen flex flex-col items-center justify-center text-center text-white px-4 py-24 bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/20">
       <h1 className="text-5xl font-bold mb-4 mt-7">Our
         <span> </span>
@@ -252,7 +270,8 @@ const TeamsPage = () => {
         ))}
       </div>
      
-    </div>
+    </div></>
+    
   );
 };
 

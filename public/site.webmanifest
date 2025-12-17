@@ -1,0 +1,18 @@
+{
+  "name": "GDG TSEC",
+  "short_name": "GDG TSEC",
+  "description": "Google Developer Groups - Thadomal Shahani Engineering College",
+  "icons": [
+    {
+      "src": "/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#0b1220",
+  "background_color": "#0b1220",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

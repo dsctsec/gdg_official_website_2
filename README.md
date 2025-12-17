@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GDG Official Website
 
-## Getting Started
+Welcome to the **GDG Official Website** repository! This project serves as the official website for GDG (Google Developer Group) TSEC, showcasing events, teams, sponsors, and more.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Features
+
+- **Landing Page**: A visually appealing introduction to GDG TSEC.
+- **Events Section**: Details about past and upcoming events like Hacksync 2025 and 2026.
+- **Teams Page**: Meet the team behind GDG TSEC.
+- **Sponsors Page**: Highlighting our sponsors and partners.
+- **Contact Page**: Get in touch with us via email, WhatsApp, or LinkedIn.
+- **Dark Mode**: Fully optimized for dark mode.
+- **Responsive Design**: Works seamlessly across devices (mobile, tablet, desktop).
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: React, Next.js, Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide Icons
+- **Deployment**: Vercel
+
+---
+
+## 📂 Folder Structure
+
+```plaintext
+gdg_official_website_2/
+├── app/
+│   ├── components/          # Reusable components (Navbar, Footer, Cards, etc.)
+│   ├── events/              # Events page
+│   ├── teams/               # Teams page
+│   ├── sponsors/            # Sponsors page
+│   ├── contact/             # Contact page
+│   └── layout.jsx           # Main layout wrapper
+├── public/                  # Static assets (images, icons, etc.)
+├── styles/                  # Global styles
+├── README.md                # Project documentation
+└── package.json             # Dependencies and scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 🌐 Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+Check out the live version of the website:  
+[GDG Official Website](https://gdgtsecoffical.dpdns.org/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📬 Contact
 
-## Deploy on Vercel
+For any inquiries or feedback, feel free to reach out:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Email**: [dsctsec@gmail.com](mailto:dsctsec@gmail.com)
+- **WhatsApp**: [Join our group](https://chat.whatsapp.com/BsLBWWGIAcz379C9BSRuIM)
+- **LinkedIn**: [GDG TSEC](https://www.linkedin.com/company/gdg-tsec/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Made with ❤️ by **GDG TSEC**.

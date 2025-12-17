@@ -1,4 +1,4 @@
-"use client";
+"use client"  ;
 
 import React, { useState } from "react";
 import {
@@ -10,7 +10,7 @@ import {
 } from "react-icons/io5";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import Script from "next/script";
 const ContactPage = () => {
   const [status, setStatus] = useState("idle");
 
@@ -37,11 +37,40 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/20 text-white px-2 py-20 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-12 mt-5">
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-white/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm">
-            <div className="flex gap-1">
+    <>
+    <Script
+  id="contact-schema"
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "GDG TSEC",
+        "email": "dsctsec@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mumbai",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN",
+          "streetAddress": "Thadomal Shahani Engineering College, Bandra West"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "General Inquiries",
+          "email": "dsctsec@gmail.com"
+        }
+      }
+    })
+  }}
+/>
+      
+      <div className="min-h-screen bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/20 text-white px-2 py-20 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-12 mt-5">
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/20 rounded-full px-6 py-2 mb-6 backdrop-blur-sm">
+              <div className="flex gap-1">
               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
               <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse delay-200" />
               <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse delay-400" />
@@ -240,6 +269,7 @@ const ContactPage = () => {
         
       </div>
     </div>
+    </>
   );
 };
 

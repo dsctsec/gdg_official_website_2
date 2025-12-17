@@ -16,6 +16,7 @@ import { Zap, Target, Gem, Eye, Network as NetworkIcon } from "lucide-react";
 import { MinimalistGlassCard } from "./components/MinimalistGlassCard";
 import CircularGallery from "@/components/CircularGallery";
 import { motion } from "framer-motion";
+import Script from "next/script";
 const Page = () => {
   // Counter state for animation
   const [counters, setCounters] = useState({
@@ -94,6 +95,46 @@ const Page = () => {
   }, []);
 
   return (
+    <>
+    <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+              "@type": "Question",
+              "name": "What is GDG TSEC?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GDG TSEC is the Google Developer Groups chapter at Thadomal Shahani Engineering College. We're a community of passionate developers, designers, and tech enthusiasts who come together to learn, build, and grow with Google's latest technologies."
+              }
+            }, {
+              "@type": "Question",
+              "name": "Who can join GDG TSEC?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "GDG TSEC is open to all students and tech enthusiasts of TSEC regardless of their experience level."
+              }
+            }, {
+              "@type": "Question",
+              "name": "What kind of events do we organize?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We organize technical workshops, hackathons, speaker sessions, study jams, and networking events covering Android, Web Development, Cloud, AI/ML, and more."
+              }
+            }, {
+              "@type": "Question",
+              "name": "Do I need to pay to join GDG TSEC?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, joining GDG TSEC is completely free! All our events and workshops are also free of cost."
+              }
+            }]
+          })
+        }}
+      />
     <div className="relative text-white overflow-hidden">
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-red-900/8"></div>
@@ -122,17 +163,19 @@ const Page = () => {
               </span>
             </div>
 
-            <div className="bg-white/10 rounded-3xl w-full sm:w-[500px] p-3 py-6 sm:p-5 sm:gap-4 items-center mb-8 flex  sm:flex-row backdrop-blur-sm">
+            <div className="bg-white/10 rounded-3xl w-full sm:w-[500px] p-3 py-6 sm:p-5 sm:gap-4 items-center mb-8 flex  sm:flex-row backdrop-blur-sm gap-5">
               <img
                 src="/Logo.png"
+                
                 alt="GDG TSEC Banner"
                 className="w-[80px] h-[40px] sm:w-[90px] sm:h-[50px] "
               />
+              
               <div className="">
                 <h1 className="text-[18px] sm:text-[25px]">
                   Google Developer Groups
                 </h1>
-                <h1 className="text-blue-300 text-[4px]sm:text-lg">
+                <h1 className="text-blue-300 text-[13px] sm:text-lg">
                   Thadomal Shahani Engineering College
                 </h1>
               </div>
@@ -695,6 +738,8 @@ const Page = () => {
         </div>
       </section>
     </div>
+    </>
+
   );
 };
 
