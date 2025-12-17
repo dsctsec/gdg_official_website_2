@@ -29,7 +29,7 @@ const cards = [
   // Design Head
   {
     link: "Devansh Mantri",
-    cover: "/teams/Devansh_Mantri.jpg",
+    cover: "/teams/Devansh_Mantri.jpeg",
     title: "DESIGN HEAD",
     character: "/teams/Devansh.png",
     alt: "Devansh Mantri",
