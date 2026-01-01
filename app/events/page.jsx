@@ -6,7 +6,7 @@ import Script from "next/script";
 export default function EventsPage() {
   const events = [
     {
-      link:"https://hacksync-2026.vercel.app/",
+      link:"/",
       status: "UPCOMING",
       date: "January, 2026",
       title: "Hacksync 2.0",
