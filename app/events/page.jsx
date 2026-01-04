@@ -6,8 +6,8 @@ import Script from "next/script";
 export default function EventsPage() {
   const events = [
     {
-      link:"/",
-      status: "UPCOMING",
+      link:"https://hacksync-2026.vercel.app/",
+      status: "Register Now",
       date: "January, 2026",
       title: "Hacksync 2.0",
       color: "bg-green-500",
