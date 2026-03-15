@@ -3,6 +3,7 @@ import "./globals.css";
 import ClientLayoutWrapper from "./components/ClientLayoutWrapper";
 import Script from "next/script";
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -63,6 +64,7 @@ export default function RootLayout({ children }) {
       >
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
         <Analytics />
+        <SpeedInsights />
 
         <Script
           id="ld-org"

@@ -12,6 +12,7 @@
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@radix-ui/react-icons": "^1.3.2",
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "artifact-ui": "^0.0.5",
     "axios": "^1.12.1",
     "class-variance-authority": "^0.7.1",
