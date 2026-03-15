@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientLayoutWrapper from "./components/ClientLayoutWrapper";
 import Script from "next/script";
-
+import { Analytics } from '@vercel/analytics/react';
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -62,6 +62,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+        <Analytics />
 
         <Script
           id="ld-org"
