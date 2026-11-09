@@ -1,38 +1,59 @@
-
 @import "tailwindcss";
 
-:root {
-  --background: hsl(0 0% 0%);
-  --foreground: hsl(0 0% 98%);
-}
-
-
-
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-@theme {
-  --animate-tile: tile 8s infinite;
-
-  @keyframes tile {
-    0%, 12.5%, 100%: { opacity: 1 },
-    25%, 82.5%: { opacity: 0 }
-  }
-}
-
-
-
-
-
-
-
-
-
-/* card */
+:root { color-scheme: dark; --page-bg: #07090d; --page-fg: #f8fafc; --surface: #11151c; --surface-raised: #171d27; --muted: #98a2b3; --line: rgba(148,163,184,.2); --brand-blue:#4285f4; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--page-bg); color:var(--page-fg); transition:background-color .25s,color .25s; }
+::selection { background:rgba(66,133,244,.28); }
+.eyebrow { display:inline-flex; align-items:center; gap:.55rem; color:var(--muted); font-size:.7rem; font-weight:750; letter-spacing:.18em; }
+.eyebrow-icon { display:grid; place-items:center; width:1.5rem; height:1.5rem; border:1px solid var(--line); border-radius:50%; color:#4285f4; font-size:1rem; letter-spacing:0; }
+.google-period { color:#4285f4; }
+.events-title { color:var(--page-fg); font-size:clamp(4rem,10vw,8rem); font-weight:850; line-height:.88; letter-spacing:-.075em; }
+.events-tagline { margin-top:1rem; font-size:clamp(1.2rem,3vw,2.1rem); font-weight:750; letter-spacing:-.04em; }
+.events-tagline span:nth-child(1){color:#4285f4}.events-tagline span:nth-child(2){color:#ea4335}.events-tagline span:nth-child(3){color:#34a853}
+.events-description { max-width:23rem; color:var(--muted); font-size:1rem; line-height:1.7; }
+.film-reel-label,.reel-footer { display:flex; align-items:center; justify-content:space-between; gap:1rem; color:var(--muted); font-size:.66rem; font-weight:750; letter-spacing:.13em; }
+.film-reel-label { padding:0 0 .8rem; }
+.reel-led { width:.55rem; height:.55rem; border-radius:50%; background:#34a853; box-shadow:0 0 14px #34a85380; }
+.reel-year { margin-left:auto; }
+.unwinding-reel { display:flex; align-items:center; max-width:100%; }
+.film-canister { position:relative; z-index:2; display:flex; flex:none; align-items:center; justify-content:center; width:128px; height:318px; margin-right:-13px; overflow:hidden; border:1px solid #48515e; border-radius:44px/24px; background:linear-gradient(90deg,#080a0d 0%,#282c33 12%,#0c0e12 28%,#30343a 49%,#0b0d10 73%,#191c21 91%,#060708 100%); box-shadow:inset 8px 0 12px #fff2,inset -9px 0 16px #000b,12px 14px 26px #0007; transform:perspective(600px) rotateY(-9deg); }
+.film-canister::before,.film-canister::after { position:absolute; left:0; width:100%; height:34px; content:""; border:1px solid #60656c; border-radius:50%; background:linear-gradient(180deg,#40454d,#101216 48%,#060708); }
+.film-canister::before { top:-10px; }.film-canister::after { bottom:-10px; }
+.canister-label { z-index:1; color:#f4f6f9; font-size:1.45rem; font-weight:850; line-height:.94; letter-spacing:-.04em; text-align:center; text-shadow:0 2px 8px #000; }
+.canister-logo { position:absolute; top:48px; width:76px; height:auto; object-fit:contain; }
+.canister-hub { position:absolute; right:10px; bottom:54px; width:22px; height:22px; border:5px solid #454b54; border-radius:50%; background:#111318; box-shadow:0 0 0 2px #08090b; }
+.event-reel { position:relative; flex:1; min-width:0; overflow-x:auto; overflow-y:hidden; padding:1rem 0; border:1px solid rgba(148,163,184,.22); border-radius:0 1.35rem 1.35rem 0; background:linear-gradient(115deg,#11151c,#0c0e12 45%,#171b23); box-shadow:0 30px 100px #0003; scrollbar-color:#4285f4 #171d27; scrollbar-width:thin; scroll-behavior:smooth; touch-action:pan-x; }
+.event-reel::-webkit-scrollbar { height:8px; }.event-reel::-webkit-scrollbar-track { background:#171d27; }.event-reel::-webkit-scrollbar-thumb { border-radius:8px; background:#4285f4; }
+.film-perforations { height:.55rem; margin:0 1rem; background-image:radial-gradient(ellipse at center,#edf1f8 0 48%,transparent 51%); background-size:2.4rem .55rem; background-repeat:repeat-x; opacity:.92; }
+.event-reel-track { display:flex; width:max-content; margin:1rem 0; border-block:1px solid #ffffff22; animation:reel-scroll 54s linear infinite; will-change:transform; }
+.event-reel-run { display:flex; flex:none; }
+.event-frame { display:block; flex:none; width:clamp(340px,39vw,500px); padding:1rem; border-right:1px solid #ffffff22; }
+.event-frame-linked { color:inherit; text-decoration:none; }
+.event-frame-meta { display:flex; justify-content:space-between; gap:.6rem; margin-bottom:.8rem; color:#aab2c1; font:700 .63rem/1.2 var(--font-geist-mono),monospace; letter-spacing:.06em; text-transform:uppercase; }
+.event-status { color:#b8c0cd; }
+.event-status.is-upcoming { color:#71d99a; }
+.event-image-wrap { position:relative; display:flex; height:clamp(210px,25vw,340px); width:100%; align-items:center; justify-content:center; overflow:hidden; border-radius:.45rem; background-image:linear-gradient(#080a0d78,#080a0d78),var(--event-image); background-position:center; background-size:cover; }
+.event-image-wrap::before { position:absolute; inset:-12px; content:""; background-image:var(--event-image); background-position:center; background-size:cover; filter:blur(12px) brightness(.42); transform:scale(1.06); }
+.event-frame-image { position:relative; z-index:1; display:block; width:100%; height:100%; object-fit:contain; filter:saturate(.94); transition:filter .3s,transform .5s; }
+.event-frame:hover .event-frame-image { filter:saturate(1.08); transform:scale(1.015); }
+.event-frame-copy { padding:.9rem .1rem .2rem; }
+.event-date { color:#8e9aab; font-size:.72rem; font-weight:650; }
+.event-frame-copy h2 { margin:.38rem 0 .45rem; color:#f8fafc; font-size:clamp(1.1rem,2vw,1.55rem); font-weight:760; letter-spacing:-.035em; }
+.event-frame-copy p { margin:0; color:#a8b0bd; font-size:.83rem; line-height:1.6; }
+.event-cta { display:inline-flex; gap:.5rem; margin-top:.8rem; color:#82b1ff; font-size:.8rem; font-weight:700; }
+@keyframes reel-scroll { to { transform:translateX(-50%); } }
+.reel-footer { padding:.8rem .25rem 0; font-size:.58rem; }
+.teams-page .text-gray-400 { color:var(--muted); }
+.year-selector { position:relative; display:flex; gap:.35rem; padding:.35rem; border:1px solid var(--line); border-radius:999px; background:var(--surface); box-shadow:0 12px 40px #0002; }
+.year-tab { position:relative; display:flex; min-width:5.2rem; flex-direction:column; align-items:center; gap:.25rem; border:0; border-radius:999px; padding:.6rem 1rem; color:var(--muted); background:transparent; font-weight:750; cursor:pointer; transition:color .2s,background .2s; }
+.year-tab.active { color:white; background:#4285f4; box-shadow:0 5px 16px #4285f466; }
+.year-tab-dot { width:3px;height:3px;border-radius:50%;background:transparent; }
+.year-tab.active .year-tab-dot { background:#fff; }
+.year-tape { overflow:hidden; width:min(90vw,820px); margin:2rem auto 0; padding:.5rem 0; border-block:1px dashed var(--line); color:var(--muted); white-space:nowrap; font:700 .65rem/1.2 var(--font-geist-mono),monospace; letter-spacing:.18em; }
+.year-tape span { display:block; animation:tape-unwind 24s linear infinite; }
+@keyframes tape-unwind { to { transform:translateX(-35%); } }
+.year-caption { display:flex; align-items:center; gap:.6rem; margin-top:1.2rem; color:var(--muted); font-size:.68rem; font-weight:750; letter-spacing:.15em; }
+.team-archive-note { border:1px solid var(--line); background:var(--surface); box-shadow:0 20px 60px #0002; }
+@media(max-width:700px){.film-canister{width:78px;height:236px;margin-right:-8px;border-radius:28px/16px}.canister-label{font-size:1rem}.canister-logo{top:41px;width:58px}.canister-hub{right:5px;bottom:38px;width:17px;height:17px}.film-canister::before,.film-canister::after{height:24px}.event-reel{border-radius:0 1rem 1rem 0}.event-reel-track{animation-duration:48s}.event-frame{width:min(84vw,390px);padding:.85rem}.event-image-wrap{height:230px}.reel-footer span:nth-child(2){display:none}.year-tab{min-width:4.3rem;padding:.55rem .8rem}}
+@media(prefers-reduced-motion:reduce){.event-reel-track,.year-tape span{animation:none}}

@@ -32,7 +32,7 @@ const Navbar = () => {
       
       <nav
         className={cn(
-          "fixed z-50 w-[95%] top-4 rounded-2xl -translate-x-1/2 left-1/2 border-b border-white/10 bg-black/50 backdrop-blur-xl", // Base styles for mobile
+          "site-nav fixed z-50 w-[95%] top-4 rounded-2xl -translate-x-1/2 left-1/2 border-b border-white/10 bg-black/50 backdrop-blur-xl", // Base styles for mobile
           "md:top-4 md:left-1/2 md:w-[65%] md:-translate-x-1/2 lg:rounded-full md:border" // Overrides for desktop
         )}
       >
@@ -40,7 +40,7 @@ const Navbar = () => {
           
           <Link href="/" className="flex items-center gap-2">
             <Image src="/Logo.png" alt="Website Logo" width={45} height={15} />
-            <span className="text-white">GDG TSEC</span>
+            <span className="brand-name text-white">GDG TSEC</span>
           </Link>
 
           <div className="hidden items-center gap-1 lg:flex">
@@ -60,6 +60,7 @@ const Navbar = () => {
           </div>
 
           
+          <div className="flex items-center gap-1">
           <div className="flex lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -92,6 +93,7 @@ const Navbar = () => {
               </div>
             </button>
           </div>
+          </div>
         </div>
       </nav>
     
@@ -106,7 +108,7 @@ const Navbar = () => {
      
       <div
         className={cn(
-          "fixed left-1/2 top-25 z-50 w-[95%] sm:w-[65%] -translate-x-1/2 rounded-2xl border border-white/50 bg-black/50 backdrop-blur-xl  transition-all duration-300 ease-out lg:hidden",
+          "site-menu fixed left-1/2 top-25 z-50 w-[95%] sm:w-[65%] -translate-x-1/2 rounded-2xl border border-white/50 bg-black/50 backdrop-blur-xl  transition-all duration-300 ease-out lg:hidden",
           isOpen
             ? "opacity-100 translate-y-0 scale-100"
             : "opacity-0 -translate-y-4 scale-95 pointer-events-none"

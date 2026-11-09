@@ -1,5 +1,6 @@
 
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Card from "../components/Card";
 import Image from "next/image";
 import Script from "next/script"; 
@@ -235,6 +236,7 @@ const cards = [
 ];
 
 const TeamsPage = () => {
+  const [year, setYear] = useState("2026");
   return (
     <>
         <Script
@@ -254,8 +256,9 @@ const TeamsPage = () => {
         })
       }}
     />
-    <div className="min-h-screen flex flex-col items-center justify-center text-center text-white px-4 py-24 bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/20">
-      <h1 className="text-5xl font-bold mb-4 mt-7">Our
+    <div className="teams-page min-h-screen flex flex-col items-center text-center px-4 py-28 bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/20">
+      <p className="eyebrow mb-4">THE PEOPLE BEHIND THE COMMUNITY</p>
+      <h1 className="text-5xl md:text-7xl font-bold mb-4 mt-2">Our
         <span> </span>
         <span className="text-blue-500">T</span>
         <span className="text-yellow-500">e</span>
@@ -264,11 +267,17 @@ const TeamsPage = () => {
       </h1>
 
 
-      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl w-full">
+      <p className="max-w-xl text-gray-400 mb-8">Meet the builders, makers, and organizers shaping GDG TSEC.</p>
+      <div className="year-selector" role="tablist" aria-label="Select team year">
+        {["2024", "2025", "2026"].map((item) => <button key={item} role="tab" aria-selected={year === item} onClick={() => setYear(item)} className={`year-tab ${year === item ? "active" : ""}`}><span>{item}</span><span className="year-tab-dot" /></button>)}
+      </div>
+      <div className="year-tape" aria-hidden="true"><span>{year} · GDG TSEC · BUILD / LEARN / CONNECT · {year} · GDG TSEC · BUILD / LEARN / CONNECT ·</span></div>
+      <div className="year-caption"><span className="h-2.5 w-2.5 rounded-full bg-green-500" /> TEAM ROSTER · {year}</div>
+      {year === "2026" ? <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl w-full">
         {cards.map((card, idx) => (
           <Card key={idx} {...card} />
         ))}
-      </div>
+      </div> : <div className="team-archive-note mt-8 max-w-xl rounded-3xl p-8"><span className="text-4xl">🎞️</span><h2 className="mt-4 text-xl font-bold">The {year} reel is being restored</h2><p className="mt-2 text-gray-400">We’re gathering the archived roster for this year. Explore the current team in the 2026 reel.</p><button className="mt-5 rounded-full bg-blue-600 px-5 py-2 text-sm font-semibold text-white" onClick={() => setYear("2026")}>View 2026 team</button></div>}
      
     </div></>
     

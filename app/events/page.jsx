@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import Script from "next/script";
 export default function EventsPage() {
@@ -81,82 +80,16 @@ export default function EventsPage() {
     },
   ];
 
-  // Animation variants for the floating in effect
-  const variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-
   const data = events.map((event, index) => {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [isInView, controls]);
-
   return {
     key: index,
-    content: (
-      <motion.a
-        href={event.link} // Make the entire card clickable
-        target="_blank"
-        rel="noopener noreferrer"
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={variants}
-        key={index}
-        className="border-gray-700 rounded-xl p-6 shadow-sm bg-black/80 max-w-5xl mx-auto block hover:shadow-lg transition-shadow duration-300"
-      >
-        <h1
-          className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold mb-2 ${
-            [
-              "text-red-500",
-              "text-blue-500",
-              "text-yellow-300",
-              "text-green-500",
-            ][index % 4]
-          }`}
-        >
-          {event.title}
-        </h1>
-
-        <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-4">
-          {event.date}
-        </p>
-
-        <span
-          className={`inline-block px-3 py-1 mb-6 text-xs sm:text-sm font-semibold text-white rounded-full ${
-            event.status === "UPCOMING" ? "bg-green-600" : "bg-blue-600"
-          }`}
-        >
-          {event.status}
-        </span>
-
-        <div className="flex flex-col lg:flex-row">
-          <img
-            src={event.imgSrc}
-            alt={`Image for ${event.title}`}
-            width={500}
-            height={500}
-            className="w-auto h-auto sm:h-44 md:h-52 lg:h-60 rounded-lg object-cover shadow mb-4 sm:mb-0"
-          />
-
-          <p className="text-gray-300 text-base sm:text-lg font-semibold leading-relaxed p-5">
-            {event.details}
-          </p>
-        </div>
-      </motion.a>
-    ),
+    status: event.status,
+    date: event.date,
+    title: event.title,
+    details: event.details,
+    href: event.link,
+    image: <div className="event-image-wrap" style={{ "--event-image": `url('${event.imgSrc}')` }}><img src={event.imgSrc} alt={`Image for ${event.title}`} className="event-frame-image" /></div>,
+    cta: event.link ? <span className="event-cta">Explore event <span aria-hidden="true">↗</span></span> : null,
   };
 });
 
@@ -195,8 +128,8 @@ export default function EventsPage() {
           })
         }}
       />
-    <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/20">
-      <div className="relative w-full overflow-clip px-4 py-12">
+    <section className="events-page relative min-h-screen px-4 pt-20 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-900/20 via-transparent to-red-900/20">
+      <div className="relative w-full overflow-clip px-1 py-8 md:px-4 md:py-12">
         <Timeline data={data} />
        
       </div>
